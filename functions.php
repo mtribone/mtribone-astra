@@ -23,10 +23,14 @@ function child_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
+
 // Removes the 'Read More >>' link
 add_filter( 'astra_post_link_enabled', '__return_false' );
+
 // Overrides the crappy ellipses
 function new_excerpt_more($more) {
     return ' ...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+// Removes the before and after output for links around featured images
